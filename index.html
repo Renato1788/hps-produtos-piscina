@@ -1,1 +1,565 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HPS | Produtos para Piscina</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
 
+    body {
+      background: #f5faff;
+      color: #102b55;
+    }
+
+    header {
+      background: white;
+      box-shadow: 0 2px 8px #0001;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .topbar {
+      background: #062957;
+      color: white;
+      text-align: center;
+      padding: 10px;
+      font-size: 14px;
+    }
+
+    .navbar {
+      max-width: 1200px;
+      margin: auto;
+      padding: 18px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+
+    .logo {
+      font-size: 36px;
+      font-weight: bold;
+      color: #087bd5;
+    }
+
+    .logo span {
+      color: #082b59;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #102b55;
+      margin: 0 10px;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      color: #0789e8;
+    }
+
+    .hero {
+      min-height: 390px;
+      background:
+        linear-gradient(90deg, #ffffffee, #ffffff10),
+        url("https://images.unsplash.com/photo-1572331165267-854da2b10ccc?auto=format&fit=crop&w=1800&q=85");
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      align-items: center;
+      padding: 50px 8%;
+    }
+
+    .hero-content {
+      max-width: 500px;
+    }
+
+    .hero h1 {
+      font-size: 44px;
+      margin-bottom: 18px;
+      color: #082b59;
+    }
+
+    .hero h1 span {
+      color: #0789e8;
+    }
+
+    .hero p {
+      font-size: 18px;
+      line-height: 1.6;
+      margin-bottom: 25px;
+    }
+
+    .btn {
+      background: #0789e8;
+      color: white;
+      border: none;
+      padding: 14px 25px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: bold;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .btn:hover {
+      background: #056bb8;
+    }
+
+    .benefits {
+      max-width: 1200px;
+      margin: -25px auto 30px;
+      position: relative;
+      background: white;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      padding: 25px;
+      border-radius: 10px;
+      box-shadow: 0 4px 15px #0001;
+      gap: 20px;
+    }
+
+    .benefit {
+      text-align: center;
+      font-size: 14px;
+    }
+
+    .benefit strong {
+      display: block;
+      margin-bottom: 8px;
+      color: #087bd5;
+    }
+
+    section.products {
+      max-width: 1200px;
+      margin: auto;
+      padding: 35px 20px 60px;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 30px;
+      margin-bottom: 30px;
+    }
+
+    .filters {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 25px;
+    }
+
+    .filters button {
+      border: 1px solid #0789e8;
+      color: #0789e8;
+      background: white;
+      padding: 10px 18px;
+      border-radius: 25px;
+      cursor: pointer;
+    }
+
+    .filters button.active,
+    .filters button:hover {
+      background: #0789e8;
+      color: white;
+    }
+
+    .search {
+      display: block;
+      max-width: 450px;
+      width: 100%;
+      padding: 13px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      margin: 0 auto 30px;
+      font-size: 16px;
+    }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 22px;
+    }
+
+    .product {
+      background: white;
+      border: 1px solid #e5edf5;
+      border-radius: 10px;
+      overflow: hidden;
+      text-align: center;
+      transition: 0.3s;
+    }
+
+    .product:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px #0001;
+    }
+
+    .product img {
+      width: 100%;
+      height: 190px;
+      object-fit: cover;
+      background: #eaf6ff;
+    }
+
+    .product-info {
+      padding: 18px;
+    }
+
+    .product h3 {
+      font-size: 17px;
+      min-height: 42px;
+      color: #18365c;
+    }
+
+    .price {
+      color: #087bd5;
+      font-size: 23px;
+      font-weight: bold;
+      margin: 12px 0;
+    }
+
+    .product button {
+      width: 100%;
+      background: #0789e8;
+      color: white;
+      border: none;
+      padding: 12px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .product button:hover {
+      background: #056bb8;
+    }
+
+    .cart-bar {
+      position: fixed;
+      right: 20px;
+      bottom: 20px;
+      background: #062957;
+      color: white;
+      border-radius: 12px;
+      padding: 15px 20px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+      font-weight: bold;
+      z-index: 101;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .cart-bar button {
+      background: white;
+      color: #062957;
+      border: none;
+      border-radius: 6px;
+      padding: 8px 10px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .cart-bar button:disabled {
+      cursor: not-allowed;
+      opacity: 0.6;
+    }
+
+    .empty {
+      text-align: center;
+      color: #5f718e;
+      padding: 30px;
+      background: white;
+      border-radius: 10px;
+      border: 1px solid #e5edf5;
+    }
+
+    @media (max-width: 900px) {
+      .benefits,
+      .product-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 600px) {
+      .benefits,
+      .product-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero h1 {
+        font-size: 32px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="topbar">Frete grátis para Salvador e Região Metropolitana</div>
+    <div class="navbar">
+      <div class="logo">HPS <span>
+      </span></div>
+      <nav>
+        <a href="#">Início</a>
+        <a href="#">Produtos</a>
+        <a href="#">Sobre</a>
+        <a href="#">Contato</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Sua <span>piscina</span> sempre em dia</h1>
+      <p>Produtos para manutenção, limpeza e cuidado da sua piscina com qualidade e garantia.</p>
+      <a href="#produtos" class="btn">Ver produtos</a>
+    </div>
+  </section>
+
+  <div class="benefits">
+    <div class="benefit">
+      <strong>Entrega rápida</strong>
+      <span>Em até 48h para Salvador e Região Metropolitana</span>
+    </div>
+    <div class="benefit">
+      <strong>Qualidade garantida</strong>
+      <span>Produtos confiáveis e testados</span>
+    </div>
+    <div class="benefit">
+      <strong>Atendimento</strong>
+      <span>Especialistas prontos para ajudar</span>
+    </div>
+    <div class="benefit">
+      <strong>Pagamento</strong>
+      <span>Parcelamento em até 2x</span>
+    </div>
+  </div>
+
+  <section class="products" id="produtos">
+    <h2 class="section-title">Produtos em destaque</h2>
+
+    <div class="filters">
+      <button class="active" data-filter="all">Todos</button>
+      <button data-filter="quimicos">Químicos</button>
+      <button data-filter="filtracao">Filtração</button>
+      <button data-filter="acessorios">Acessórios</button>
+    </div>
+
+    <input class="search" type="search" placeholder="Buscar produto..." aria-label="Buscar produto">
+
+    <div class="product-grid" id="productGrid"></div>
+  </section>
+
+  <div class="cart-bar">
+    <span>Carrinho: <span id="cartCount">0</span> itens</span>
+    <button id="clearCartButton" type="button" aria-label="Limpar carrinho" disabled>Limpar</button>
+  </div>
+
+  <script>
+    const products = [
+      {
+        name: 'Cloro Granulado',
+        category: 'quimicos',
+        price: 189.90,
+        image: 'chlorine'
+      },
+      {
+        name: 'Filtro de Areia',
+        category: 'filtracao',
+        price: 499.90,
+        image: 'filter'
+      },
+      {
+        name: 'Bomba de Água',
+        category: 'filtracao',
+        price: 689.90,
+        image: 'pump'
+      },
+      {
+        name: 'Escova para Piscina',
+        category: 'acessorios',
+        price: 29.90,
+        image: 'brush'
+      },
+      {
+        name: 'Ph Test Kit',
+        category: 'quimicos',
+        price: 36.90,
+        image: 'testKit'
+      },
+      {
+        name: 'Mangueira Flexível',
+        category: 'acessorios',
+        price: 90.00,
+        image: 'hose'
+      },
+      {
+        name: 'Kit de Tratamento',
+        category: 'quimicos',
+        price: 149.90,
+        image: 'treatmentKit'
+      },
+      {
+        name: 'Tampa de Proteção',
+        category: 'acessorios',
+        price: 219.90,
+        image: 'cover'
+      }
+    ];
+
+    const productGrid = document.getElementById('productGrid');
+    const cartCount = document.getElementById('cartCount');
+    const clearCartButton = document.getElementById('clearCartButton');
+    const filterButtons = document.querySelectorAll('.filters button');
+    const searchInput = document.querySelector('.search');
+
+    let currentFilter = 'all';
+    let cartItems = 0;
+
+    const productIllustrations = {
+      chlorine: `
+        <path d="M248 114h144v32l20 24v132a22 22 0 0 1-22 22H250a22 22 0 0 1-22-22V170l20-24z" fill="#087bd5"/>
+        <path d="M266 114h108v32H266z" fill="#062957"/>
+        <rect x="244" y="198" width="152" height="82" rx="8" fill="#fff"/>
+        <text x="320" y="231" text-anchor="middle" fill="#062957" font-size="18" font-weight="700">CLORO</text>
+        <text x="320" y="256" text-anchor="middle" fill="#0789e8" font-size="15" font-weight="700">GRANULADO</text>
+        <path d="M276 269h88" stroke="#9ccff3" stroke-width="4" stroke-linecap="round"/>`,
+      filter: `
+        <ellipse cx="320" cy="111" rx="71" ry="25" fill="#087bd5"/>
+        <path d="M249 111v162c0 20 32 36 71 36s71-16 71-36V111" fill="#0789e8"/>
+        <ellipse cx="320" cy="273" rx="71" ry="36" fill="#056bb8"/>
+        <path d="M290 88v-20h60v20m-30-20V45h42v22" fill="none" stroke="#062957" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M391 135h51v59h-36m-136-59h-48v59h37" fill="none" stroke="#062957" stroke-width="13" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M276 181h88" stroke="#9bd6f9" stroke-width="5" stroke-linecap="round"/>`,
+      pump: `
+        <path d="M205 167h63l25-36h112l26 36h17v103h-29l-20 27H252l-20-27h-27z" fill="#087bd5"/>
+        <rect x="287" y="150" width="102" height="101" rx="18" fill="#056bb8"/>
+        <path d="M305 166v69m20-69v69m20-69v69m20-69v69" stroke="#9bd6f9" stroke-width="7" stroke-linecap="round"/>
+        <circle cx="257" cy="218" r="31" fill="#fff" stroke="#062957" stroke-width="10"/>
+        <circle cx="257" cy="218" r="10" fill="#0789e8"/>
+        <path d="M206 188h-27v62h27m253-62h30v62h-30" fill="none" stroke="#062957" stroke-width="13" stroke-linecap="round"/>
+        <path d="M276 297h132" stroke="#062957" stroke-width="14" stroke-linecap="round"/>`,
+      brush: `
+        <path d="m291 86 18 8-83 186-18-8z" fill="#087bd5"/>
+        <path d="m288 88 20 9-9 20-20-9z" fill="#062957"/>
+        <rect x="180" y="264" width="174" height="42" rx="12" fill="#0789e8"/>
+        <path d="M194 306v18m22-18v18m22-18v18m22-18v18m22-18v18m22-18v18m22-18v18m22-18v18" stroke="#062957" stroke-width="6" stroke-linecap="round"/>
+        <path d="M181 279h-16m205 0h-16" stroke="#9bd6f9" stroke-width="7" stroke-linecap="round"/>`,
+      testKit: `
+        <rect x="182" y="137" width="276" height="166" rx="18" fill="#087bd5"/>
+        <rect x="198" y="153" width="244" height="134" rx="12" fill="#fff"/>
+        <text x="320" y="181" text-anchor="middle" fill="#062957" font-size="17" font-weight="700">KIT DE TESTE</text>
+        <path d="M235 204v51a18 18 0 0 0 36 0v-51" fill="#d9f3ff" stroke="#0789e8" stroke-width="6"/>
+        <path d="M235 239h36" stroke="#f4a340" stroke-width="12"/>
+        <path d="M302 204v51a18 18 0 0 0 36 0v-51" fill="#d9f3ff" stroke="#0789e8" stroke-width="6"/>
+        <path d="M302 239h36" stroke="#e65d67" stroke-width="12"/>
+        <path d="M369 204v51a18 18 0 0 0 36 0v-51" fill="#d9f3ff" stroke="#0789e8" stroke-width="6"/>
+        <path d="M369 239h36" stroke="#63b878" stroke-width="12"/>`,
+      hose: `
+        <path d="M227 153c0-45 60-45 60 0v86c0 45 60 45 60 0v-86c0-45 60-45 60 0v86c0 45-60 45-60 0v-86c0-45-60-45-60 0v86c0 45-60 45-60 0z" fill="none" stroke="#0789e8" stroke-width="24" stroke-linecap="round"/>
+        <path d="M221 148h-27v31h27m192-31h31v31h-31" fill="#062957" stroke="#062957" stroke-width="8" stroke-linejoin="round"/>
+        <path d="M194 156h27m192 0h31" stroke="#9bd6f9" stroke-width="6"/>`,
+      treatmentKit: `
+        <path d="M195 177h99v124h-99z" fill="#087bd5"/>
+        <path d="M214 177v-28h61v28" fill="none" stroke="#062957" stroke-width="12" stroke-linejoin="round"/>
+        <rect x="207" y="216" width="75" height="52" rx="7" fill="#fff"/>
+        <text x="244" y="238" text-anchor="middle" fill="#062957" font-size="12" font-weight="700">TRATAMENTO</text>
+        <path d="M335 167h72l10 20v114h-92V187z" fill="#42a86b"/>
+        <rect x="336" y="207" width="72" height="48" rx="6" fill="#fff"/>
+        <text x="372" y="228" text-anchor="middle" fill="#247a48" font-size="13" font-weight="700">ALGICIDA</text>
+        <path d="M354 167v-17h34v17" fill="#062957"/>`,
+      cover: `
+        <path d="M167 223h306v92H167z" fill="#087bd5"/>
+        <path d="m167 223 42-49h224l40 49z" fill="#0789e8"/>
+        <path d="M209 174v141m74-141v141m75-141v141m75-141v141" stroke="#9bd6f9" stroke-width="5" opacity=".8"/>
+        <path d="M167 223h306m-306 92h306" stroke="#062957" stroke-width="9"/>
+        <path d="M197 174v-19h247v19" fill="none" stroke="#062957" stroke-width="8" stroke-linecap="round"/>
+        <circle cx="181" cy="226" r="8" fill="#fff"/><circle cx="458" cy="226" r="8" fill="#fff"/>`
+    };
+
+    function productImage(type) {
+      const svg = `
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 380">
+          <defs>
+            <linearGradient id="background" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#eaf6ff"/>
+              <stop offset="1" stop-color="#c9e8fb"/>
+            </linearGradient>
+          </defs>
+          <rect width="640" height="380" fill="url(#background)"/>
+          <circle cx="505" cy="78" r="40" fill="#fff" opacity=".55"/>
+          <path d="M0 335c105-26 188 14 287-5s205-18 353 2v48H0z" fill="#fff" opacity=".72"/>
+          ${productIllustrations[type]}
+        </svg>`;
+      return `data:image/svg+xml;charset=UTF-8,${encodeURIComponent(svg)}`;
+    }
+
+    function formatPrice(value) {
+      return new Intl.NumberFormat('pt-BR', {
+        style: 'currency',
+        currency: 'BRL'
+      }).format(value);
+    }
+
+    function renderProducts() {
+      const searchTerm = searchInput.value.trim().toLowerCase();
+
+      const filteredProducts = products.filter((product) => {
+        const matchesFilter = currentFilter === 'all' || product.category === currentFilter;
+        const matchesSearch = product.name.toLowerCase().includes(searchTerm);
+        return matchesFilter && matchesSearch;
+      });
+
+      if (!filteredProducts.length) {
+        productGrid.innerHTML = '<div class="empty">Nenhum produto encontrado.</div>';
+        return;
+      }
+
+      productGrid.innerHTML = filteredProducts.map((product) => `
+        <article class="product">
+          <img src="${productImage(product.image)}" alt="${product.name}">
+          <div class="product-info">
+            <h3>${product.name}</h3>
+            <div class="price">${formatPrice(product.price)}</div>
+            <button type="button" data-name="${product.name}">Adicionar</button>
+          </div>
+        </article>
+      `).join('');
+
+      document.querySelectorAll('.product button').forEach((button) => {
+        button.addEventListener('click', () => {
+          cartItems += 1;
+          cartCount.textContent = cartItems;
+          clearCartButton.disabled = false;
+        });
+      });
+    }
+
+    clearCartButton.addEventListener('click', () => {
+      cartItems = 0;
+      cartCount.textContent = cartItems;
+      clearCartButton.disabled = true;
+    });
+
+    filterButtons.forEach((button) => {
+      button.addEventListener('click', () => {
+        filterButtons.forEach((btn) => btn.classList.remove('active'));
+        button.classList.add('active');
+        currentFilter = button.dataset.filter;
+        renderProducts();
+      });
+    });
+
+    searchInput.addEventListener('input', renderProducts);
+    renderProducts();
+  </script>
+</body>
+</html>
