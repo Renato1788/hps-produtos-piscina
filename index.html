@@ -253,24 +253,6 @@
       box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
       font-weight: bold;
       z-index: 101;
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-
-    .cart-bar button {
-      background: white;
-      color: #062957;
-      border: none;
-      border-radius: 6px;
-      padding: 8px 10px;
-      cursor: pointer;
-      font-weight: bold;
-    }
-
-    .cart-bar button:disabled {
-      cursor: not-allowed;
-      opacity: 0.6;
     }
 
     .empty {
@@ -299,47 +281,720 @@
         font-size: 32px;
       }
     }
+
+    :root {
+      --navy: #062957;
+      --blue: #087bd5;
+      --bright-blue: #0867dc;
+      --muted: #56647a;
+    }
+
+    body {
+      background: #fff;
+      color: #101c3f;
+    }
+
+    header {
+      position: relative;
+      box-shadow: 0 2px 12px #06295712;
+    }
+
+    .topbar {
+      padding: 8px 4%;
+      font-size: 12px;
+      text-align: left;
+    }
+
+    .topbar-inner {
+      max-width: 1300px;
+      margin: auto;
+      display: flex;
+      align-items: center;
+      gap: 28px;
+    }
+
+    .topbar .shipping {
+      margin-left: auto;
+      font-weight: bold;
+    }
+
+    .topbar .shipping strong {
+      color: #ffdd35;
+    }
+
+    .navbar {
+      max-width: 1300px;
+      min-height: 68px;
+      padding: 12px 20px;
+      flex-wrap: nowrap;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      color: #0789e8;
+      font-size: 38px;
+      letter-spacing: -2px;
+      text-decoration: none;
+    }
+
+    .logo span {
+      color: #082b59;
+    }
+
+    .logo-mark {
+      width: 52px;
+      height: 34px;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 3px;
+    }
+
+    nav a {
+      margin: 0;
+      padding: 12px 10px;
+      color: #20232b;
+      font-size: 12px;
+      white-space: nowrap;
+    }
+
+    nav a.active {
+      color: var(--bright-blue);
+      border-bottom: 2px solid var(--bright-blue);
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 13px;
+      color: #161a22;
+      font-size: 13px;
+      white-space: nowrap;
+    }
+
+    .header-actions a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .header-actions button {
+      padding: 3px 5px;
+      border: 0;
+      background: transparent;
+      color: #53627a;
+      cursor: pointer;
+      font-size: 11px;
+    }
+
+    .header-actions button:disabled {
+      cursor: default;
+      opacity: .4;
+    }
+
+    .header-icon {
+      position: relative;
+      font-size: 21px;
+    }
+
+    .cart-count {
+      position: absolute;
+      top: -9px;
+      right: -9px;
+      min-width: 17px;
+      height: 17px;
+      padding: 0 4px;
+      border-radius: 12px;
+      background: var(--bright-blue);
+      color: #fff;
+      font-size: 10px;
+      line-height: 17px;
+      text-align: center;
+    }
+
+    .hero {
+      position: relative;
+      min-height: 255px;
+      overflow: hidden;
+      align-items: center;
+      padding: 32px max(8%, calc((100% - 1200px) / 2));
+      background:
+        linear-gradient(90deg, #ffffff 0%, #ffffffed 29%, #ffffff30 62%, #ffffff00 100%),
+        url("https://images.unsplash.com/photo-1572331165267-854da2b10ccc?auto=format&fit=crop&w=1800&q=85") center 52% / cover;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 390px;
+    }
+
+    .hero h1 {
+      margin-bottom: 10px;
+      color: #102453;
+      font-size: clamp(30px, 3vw, 38px);
+      line-height: 1.12;
+    }
+
+    .hero h1 span {
+      color: var(--bright-blue);
+    }
+
+    .hero p {
+      margin-bottom: 17px;
+      color: #263650;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    .btn,
+    .product button {
+      background: var(--bright-blue);
+      border-radius: 5px;
+    }
+
+    .hero-art {
+      position: absolute;
+      right: 7%;
+      bottom: 17px;
+      display: flex;
+      align-items: end;
+      gap: 14px;
+      filter: drop-shadow(0 10px 7px #06295730);
+    }
+
+    .hero-product {
+      display: grid;
+      place-items: center;
+      color: #fff;
+      text-align: center;
+      font-size: 12px;
+      font-weight: bold;
+      text-shadow: 0 1px 3px #0008;
+    }
+
+    .hero-bottle {
+      width: 85px;
+      height: 132px;
+      padding: 48px 6px 8px;
+      border: 5px solid #e8f4fb;
+      border-radius: 12px 12px 20px 20px;
+      background: linear-gradient(90deg, #075eaa, #1689d7 55%, #064b89);
+    }
+
+    .hero-bottle:before {
+      content: "";
+      position: absolute;
+      width: 48px;
+      height: 22px;
+      margin-top: -66px;
+      border-radius: 7px 7px 0 0;
+      background: #fff;
+    }
+
+    .hero-floater {
+      width: 88px;
+      height: 88px;
+      border: 13px solid #0676d4;
+      border-radius: 50%;
+      background: #e8f6ff;
+      box-shadow: inset 0 0 0 9px #fff, inset 0 0 0 14px #087bd5;
+    }
+
+    .hero-hose {
+      width: 140px;
+      height: 62px;
+      border: 15px solid #087bd5;
+      border-radius: 50%;
+      transform: rotate(-12deg);
+      box-shadow: inset 0 0 0 4px #7cc9f7;
+    }
+
+    .hero-dots {
+      position: absolute;
+      bottom: 13px;
+      left: 50%;
+      display: flex;
+      gap: 12px;
+      transform: translateX(-50%);
+    }
+
+    .hero-dots span {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: #fff;
+      box-shadow: 0 1px 3px #0003;
+    }
+
+    .hero-dots span:first-child {
+      background: var(--bright-blue);
+    }
+
+    .benefits {
+      z-index: 2;
+      max-width: 1200px;
+      margin: -22px auto 0;
+      padding: 17px 20px;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+      border: 1px solid #edf0f4;
+      border-radius: 8px;
+      box-shadow: 0 4px 14px #142b4b12;
+    }
+
+    .benefit {
+      display: flex;
+      align-items: center;
+      gap: 13px;
+      padding: 0 18px;
+      text-align: left;
+      font-size: 11px;
+    }
+
+    .benefit + .benefit {
+      border-left: 1px solid #e9edf2;
+    }
+
+    .benefit-icon {
+      color: var(--bright-blue);
+      font-size: 27px;
+      line-height: 1;
+    }
+
+    .benefit strong {
+      margin-bottom: 4px;
+      color: #171d2d;
+      font-size: 11px;
+      text-transform: uppercase;
+    }
+
+    .benefit span:last-child {
+      color: var(--muted);
+      line-height: 1.35;
+    }
+
+    section.products {
+      max-width: 1240px;
+      padding: 14px 20px 34px;
+    }
+
+    .section-title {
+      position: relative;
+      margin-bottom: 21px;
+      color: #101f53;
+      font-size: 21px;
+      text-transform: uppercase;
+    }
+
+    .section-title:after {
+      content: "";
+      position: absolute;
+      bottom: -8px;
+      left: 50%;
+      width: 46px;
+      height: 2px;
+      background: var(--bright-blue);
+      transform: translateX(-50%);
+    }
+
+    .filters {
+      gap: 8px;
+      margin-bottom: 14px;
+    }
+
+    .filters button {
+      padding: 7px 14px;
+      border-radius: 4px;
+    }
+
+    .search {
+      max-width: 360px;
+      margin-bottom: 16px;
+      padding: 10px 12px;
+      font-size: 14px;
+    }
+
+    .product-grid {
+      grid-template-columns: repeat(6, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .product {
+      display: flex;
+      flex-direction: column;
+      border-color: #edf0f4;
+      border-radius: 6px;
+      box-shadow: 0 1px 4px #06295708;
+    }
+
+    .product:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 18px #06295714;
+    }
+
+    .product img {
+      height: 125px;
+      padding: 12px;
+      object-fit: contain;
+      background: #fff;
+    }
+
+    .product-info {
+      display: flex;
+      flex: 1;
+      flex-direction: column;
+      padding: 8px 12px 12px;
+    }
+
+    .product h3 {
+      min-height: 36px;
+      color: #171a20;
+      font-size: 13px;
+      line-height: 1.35;
+    }
+
+    .price {
+      margin: 6px 0 2px;
+      color: var(--bright-blue);
+      font-size: 18px;
+    }
+
+    .installments {
+      min-height: 18px;
+      margin-bottom: 8px;
+      color: var(--muted);
+      font-size: 10px;
+    }
+
+    .product button {
+      margin-top: auto;
+      padding: 9px;
+      text-transform: uppercase;
+      font-size: 11px;
+    }
+
+    .cart-bar {
+      display: none;
+    }
+
+    .site-footer {
+      padding: 12px 20px;
+      background: linear-gradient(100deg, #064078, #00336b);
+      color: white;
+    }
+
+    .footer-inner {
+      max-width: 1200px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+
+    .footer-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .footer-icon {
+      color: #46b6ff;
+      font-size: 30px;
+    }
+
+    .footer-item strong {
+      display: block;
+      margin-bottom: 4px;
+      font-size: 11px;
+      text-transform: uppercase;
+    }
+
+    .footer-item p {
+      color: #d3e2f5;
+      font-size: 10px;
+      line-height: 1.45;
+    }
+
+    .footer-item a {
+      flex-shrink: 0;
+      padding: 8px 10px;
+      border-radius: 4px;
+      background: #15b85a;
+      color: #fff;
+      font-size: 10px;
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    @media (max-width: 1000px) {
+      .navbar {
+        flex-wrap: wrap;
+      }
+
+      nav {
+        order: 3;
+        width: 100%;
+        justify-content: center;
+      }
+
+      .product-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      .hero-art {
+        right: 4%;
+        transform: scale(.85);
+        transform-origin: right bottom;
+      }
+    }
+
+    @media (max-width: 650px) {
+      .topbar-inner {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 5px 16px;
+      }
+
+      .topbar .shipping {
+        width: 100%;
+        margin: 0;
+        text-align: center;
+      }
+
+      .navbar {
+        justify-content: center;
+        gap: 6px 16px;
+      }
+
+      .logo {
+        margin-right: auto;
+        font-size: 32px;
+      }
+
+      .logo-mark {
+        width: 42px;
+      }
+
+      .header-actions {
+        gap: 12px;
+      }
+
+      .header-actions > a:nth-child(2) {
+        display: none;
+      }
+
+      nav {
+        justify-content: flex-start;
+        overflow-x: auto;
+        min-width: 0;
+        max-width: 100%;
+      }
+
+      nav a {
+        padding: 9px 7px;
+        font-size: 10px;
+      }
+
+      .hero {
+        min-height: 290px;
+        padding: 28px 7%;
+        background-position: center;
+      }
+
+      .hero-content {
+        max-width: 290px;
+      }
+
+      .hero h1 {
+        max-width: 260px;
+        font-size: 31px;
+      }
+
+      .hero p {
+        max-width: 240px;
+        font-size: 13px;
+      }
+
+      .hero-art {
+        right: -32px;
+        bottom: 25px;
+        opacity: .48;
+        transform: scale(.65);
+      }
+
+      .hero-dots {
+        bottom: 10px;
+      }
+
+      .benefits {
+        margin: -10px 12px 0;
+        padding: 10px;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px 0;
+      }
+
+      .benefit {
+        padding: 7px;
+        gap: 8px;
+      }
+
+      .benefit + .benefit {
+        border-left: 0;
+      }
+
+      .benefit-icon {
+        font-size: 22px;
+      }
+
+      .benefit strong {
+        font-size: 9px;
+      }
+
+      .benefit span:last-child {
+        font-size: 9px;
+      }
+
+      section.products {
+        padding: 20px 12px 25px;
+      }
+
+      .section-title {
+        font-size: 19px;
+      }
+
+      .filters {
+        gap: 6px;
+      }
+
+      .filters button {
+        padding: 7px 10px;
+        font-size: 12px;
+      }
+
+      .product-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
+      }
+
+      .product img {
+        height: 120px;
+      }
+
+      .product-info {
+        padding: 7px 9px 9px;
+      }
+
+      .product h3 {
+        font-size: 12px;
+      }
+
+      .price {
+        font-size: 16px;
+      }
+
+      .footer-inner {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 14px;
+      }
+
+      .footer-item {
+        display: grid;
+        grid-template-columns: 24px minmax(0, 1fr);
+        align-items: start;
+        gap: 6px;
+        min-width: 0;
+      }
+
+      .footer-item a {
+        grid-column: 2;
+        width: fit-content;
+      }
+
+      .footer-icon {
+        font-size: 24px;
+      }
+
+      .footer-item strong {
+        font-size: 9px;
+      }
+
+      .footer-item p {
+        font-size: 9px;
+      }
+    }
   </style>
 </head>
 <body>
   <header>
-    <div class="topbar">Frete grátis para Salvador e Região Metropolitana</div>
+    <div class="topbar">
+      <div class="topbar-inner">
+        <span>☎ &nbsp;(71) 99999-9999</span>
+        <span>✉ &nbsp;contato@hps.com.br</span>
+        <span class="shipping">🚚 &nbsp;ENTREGA <strong>GRÁTIS</strong> EM SALVADOR E REGIÃO METROPOLITANA</span>
+      </div>
+    </div>
     <div class="navbar">
-      <div class="logo">HPS <span>
-      </span></div>
-      <nav>
-        <a href="#">Início</a>
-        <a href="#">Produtos</a>
-        <a href="#">Sobre</a>
-        <a href="#">Contato</a>
+      <a class="logo" href="#inicio" aria-label="HPS - início">
+        <svg class="logo-mark" viewBox="0 0 64 40" aria-hidden="true">
+          <path d="M2 25c15-3 19-17 33-17 8 0 13 5 17 10-10-5-17 0-25 7C19 31 12 33 2 25Z" fill="#0789e8"/>
+          <path d="M3 32c14 0 22-12 34-12 8 0 14 4 22 9-12-3-20 1-29 7C20 42 11 39 3 32Z" fill="#0867dc"/>
+        </svg>
+        HPS
+      </a>
+      <nav aria-label="Navegação principal">
+        <a class="active" href="#inicio">INÍCIO</a>
+        <a href="#produtos">PRODUTOS⌄</a>
+        <a href="#produtos">ACESSÓRIOS</a>
+        <a href="#produtos">KITS</a>
+        <a href="#produtos">OFERTAS</a>
+        <a href="#sobre">SOBRE NÓS</a>
+        <a href="#contato">CONTATO</a>
       </nav>
+      <div class="header-actions">
+        <a class="header-icon" href="#busca" aria-label="Buscar produtos">⌕</a>
+        <a class="header-icon" href="#contato" aria-label="Minha conta">♙</a>
+        <a class="header-icon" href="#produtos" aria-label="Carrinho">🛒<span class="cart-count" id="cartCount">0</span></a>
+        <strong id="cartTotal">R$ 0,00</strong>
+        <button id="clearCartButton" type="button" aria-label="Limpar carrinho" title="Limpar carrinho" disabled>×</button>
+      </div>
     </div>
   </header>
 
+  <main id="inicio">
   <section class="hero">
     <div class="hero-content">
-      <h1>Sua <span>piscina</span> sempre em dia</h1>
-      <p>Produtos para manutenção, limpeza e cuidado da sua piscina com qualidade e garantia.</p>
-      <a href="#produtos" class="btn">Ver produtos</a>
+      <h1>Tudo para sua <span>piscina</span> você encontra <span>aqui!</span></h1>
+      <p>Produtos de qualidade para manter sua piscina sempre limpa e pronta para momentos incríveis.</p>
+      <a href="#produtos" class="btn">VER PRODUTOS</a>
     </div>
+    <div class="hero-art" aria-hidden="true">
+      <div class="hero-product hero-floater"></div>
+      <div class="hero-product hero-bottle">CLORO<br>10 em 1</div>
+      <div class="hero-product hero-hose"></div>
+    </div>
+    <div class="hero-dots" aria-hidden="true"><span></span><span></span><span></span></div>
   </section>
 
-  <div class="benefits">
+  <div class="benefits" id="sobre">
     <div class="benefit">
-      <strong>Entrega rápida</strong>
-      <span>Em até 48h para Salvador e Região Metropolitana</span>
+      <span class="benefit-icon" aria-hidden="true">🚚</span>
+      <div><strong>Entrega grátis</strong><span>Salvador e Região Metropolitana</span></div>
     </div>
     <div class="benefit">
-      <strong>Qualidade garantida</strong>
-      <span>Produtos confiáveis e testados</span>
+      <span class="benefit-icon" aria-hidden="true">🛡</span>
+      <div><strong>Pagamento seguro</strong><span>Ambiente 100% seguro</span></div>
     </div>
     <div class="benefit">
-      <strong>Atendimento</strong>
-      <span>Especialistas prontos para ajudar</span>
+      <span class="benefit-icon" aria-hidden="true">🏅</span>
+      <div><strong>Produtos de qualidade</strong><span>As melhores marcas do mercado</span></div>
     </div>
     <div class="benefit">
-      <strong>Pagamento</strong>
-      <span>Parcelamento em até 2x</span>
+      <span class="benefit-icon" aria-hidden="true">🎧</span>
+      <div><strong>Atendimento especializado</strong><span>Suporte rápido e eficiente</span></div>
     </div>
   </div>
 
@@ -349,154 +1004,127 @@
     <div class="filters">
       <button class="active" data-filter="all">Todos</button>
       <button data-filter="quimicos">Químicos</button>
-      <button data-filter="filtracao">Filtração</button>
       <button data-filter="acessorios">Acessórios</button>
+      <button data-filter="filtracao">Filtração</button>
     </div>
 
-    <input class="search" type="search" placeholder="Buscar produto..." aria-label="Buscar produto">
+    <input class="search" id="busca" type="search" placeholder="Buscar produto..." aria-label="Buscar produto">
 
     <div class="product-grid" id="productGrid"></div>
   </section>
+  </main>
 
-  <div class="cart-bar">
-    <span>Carrinho: <span id="cartCount">0</span> itens</span>
-    <button id="clearCartButton" type="button" aria-label="Limpar carrinho" disabled>Limpar</button>
-  </div>
+  <footer class="site-footer" id="contato">
+    <div class="footer-inner">
+      <div class="footer-item"><span class="footer-icon">💧</span><div><strong>Dicas e manutenção</strong><p>Conteúdos exclusivos para manter sua piscina sempre perfeita!</p></div><a href="#sobre">CONFIRA</a></div>
+      <div class="footer-item"><span class="footer-icon">🛡</span><div><strong>Compra 100% segura</strong><p>Seus dados protegidos em todas as etapas da compra.</p></div></div>
+      <div class="footer-item"><span class="footer-icon">🏅</span><div><strong>Qualidade garantida</strong><p>Trabalhamos com as melhores marcas do mercado.</p></div></div>
+      <div class="footer-item"><span class="footer-icon">💬</span><div><strong>Fale com a gente</strong><p>Atendimento rápido e especializado pelo WhatsApp.</p></div><a href="https://wa.me/5571999999999">FALE CONOSCO</a></div>
+    </div>
+  </footer>
 
   <script>
     const products = [
       {
-        name: 'Cloro Granulado',
-        category: 'quimicos',
-        price: 189.90,
-        image: 'chlorine'
-      },
-      {
-        name: 'Filtro de Areia',
+        name: 'Filtro para Piscina Sodramar FM 50',
         category: 'filtracao',
-        price: 499.90,
+        price: 899.90,
+        installment: 'ou 10x de R$ 89,99',
         image: 'filter'
       },
       {
-        name: 'Bomba de Água',
-        category: 'filtracao',
-        price: 689.90,
-        image: 'pump'
+        name: 'Cloro Granulado HTH Tradicional 10kg',
+
+        price: 169.90,
+        installment: 'ou 3x de R$ 56,63',
+        image: 'chlorine'
       },
       {
-        name: 'Escova para Piscina',
+        name: 'Peneira para Piscina Arco reforçado',
+        category: 'acessorios',
+        price: 39.90,
+        installment: 'ou 2x de R$ 19,95',
+        image: 'net'
+      },
+      {
+        name: 'Escova para Piscina Cerdas Nylon',
         category: 'acessorios',
         price: 29.90,
+        installment: 'ou 2x de R$ 14,95',
         image: 'brush'
       },
       {
-        name: 'Ph Test Kit',
-        category: 'quimicos',
-        price: 36.90,
-        image: 'testKit'
-      },
-      {
-        name: 'Mangueira Flexível',
+        name: 'Mangueira Flutuante Azul 1.1/2" (38mm)',
         category: 'acessorios',
-        price: 90.00,
+        price: 129.90,
+        installment: 'ou 3x de R$ 43,30',
         image: 'hose'
       },
       {
-        name: 'Kit de Tratamento',
+        name: 'Clorador Flutuante para Pastilhas',
         category: 'quimicos',
-        price: 149.90,
-        image: 'treatmentKit'
-      },
-      {
-        name: 'Tampa de Proteção',
-        category: 'acessorios',
-        price: 219.90,
-        image: 'cover'
+        price: 24.90,
+        installment: 'ou 2x de R$ 12,45',
+        image: 'floater'
       }
     ];
 
     const productGrid = document.getElementById('productGrid');
     const cartCount = document.getElementById('cartCount');
+    const cartTotal = document.getElementById('cartTotal');
     const clearCartButton = document.getElementById('clearCartButton');
     const filterButtons = document.querySelectorAll('.filters button');
     const searchInput = document.querySelector('.search');
 
     let currentFilter = 'all';
-    let cartItems = 0;
+    let cartItems = [];
 
     const productIllustrations = {
-      chlorine: `
-        <path d="M248 114h144v32l20 24v132a22 22 0 0 1-22 22H250a22 22 0 0 1-22-22V170l20-24z" fill="#087bd5"/>
-        <path d="M266 114h108v32H266z" fill="#062957"/>
-        <rect x="244" y="198" width="152" height="82" rx="8" fill="#fff"/>
-        <text x="320" y="231" text-anchor="middle" fill="#062957" font-size="18" font-weight="700">CLORO</text>
-        <text x="320" y="256" text-anchor="middle" fill="#0789e8" font-size="15" font-weight="700">GRANULADO</text>
-        <path d="M276 269h88" stroke="#9ccff3" stroke-width="4" stroke-linecap="round"/>`,
       filter: `
-        <ellipse cx="320" cy="111" rx="71" ry="25" fill="#087bd5"/>
-        <path d="M249 111v162c0 20 32 36 71 36s71-16 71-36V111" fill="#0789e8"/>
-        <ellipse cx="320" cy="273" rx="71" ry="36" fill="#056bb8"/>
-        <path d="M290 88v-20h60v20m-30-20V45h42v22" fill="none" stroke="#062957" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
-        <path d="M391 135h51v59h-36m-136-59h-48v59h37" fill="none" stroke="#062957" stroke-width="13" stroke-linecap="round" stroke-linejoin="round"/>
-        <path d="M276 181h88" stroke="#9bd6f9" stroke-width="5" stroke-linecap="round"/>`,
-      pump: `
-        <path d="M205 167h63l25-36h112l26 36h17v103h-29l-20 27H252l-20-27h-27z" fill="#087bd5"/>
-        <rect x="287" y="150" width="102" height="101" rx="18" fill="#056bb8"/>
-        <path d="M305 166v69m20-69v69m20-69v69m20-69v69" stroke="#9bd6f9" stroke-width="7" stroke-linecap="round"/>
-        <circle cx="257" cy="218" r="31" fill="#fff" stroke="#062957" stroke-width="10"/>
-        <circle cx="257" cy="218" r="10" fill="#0789e8"/>
-        <path d="M206 188h-27v62h27m253-62h30v62h-30" fill="none" stroke="#062957" stroke-width="13" stroke-linecap="round"/>
-        <path d="M276 297h132" stroke="#062957" stroke-width="14" stroke-linecap="round"/>`,
+        <ellipse cx="320" cy="112" rx="72" ry="24" fill="#087bd5"/>
+        <path d="M248 112v157c0 20 32 36 72 36s72-16 72-36V112" fill="#087bd5"/>
+        <ellipse cx="320" cy="269" rx="72" ry="36" fill="#056bb8"/>
+        <path d="M287 88V63h66v25m-33-25V43h45v20" fill="none" stroke="#102b55" stroke-width="12" stroke-linejoin="round"/>
+        <path d="M389 143h53v54h-37m-170-54h-46v54h37" fill="none" stroke="#102b55" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
+        <rect x="408" y="221" width="48" height="51" rx="8" fill="#0789e8"/>
+        <path d="M418 231v31m14-31v31m14-31v31" stroke="#d8efff" stroke-width="5"/>`,
+      chlorine: `
+        <path d="M246 112h148v31l18 25v134a20 20 0 0 1-20 20H248a20 20 0 0 1-20-20V168l18-25z" fill="#087bd5"/>
+        <path d="M266 112h108v32H266z" fill="#f3f5f7"/>
+        <path d="M253 196h134v82H253z" fill="#fff"/>
+        <circle cx="320" cy="215" r="20" fill="#e52b36"/>
+        <text x="320" y="221" text-anchor="middle" fill="#fff" font-size="17" font-weight="700">hth</text>
+        <text x="320" y="251" text-anchor="middle" fill="#10345e" font-size="17" font-weight="700">CLORO</text>
+        <text x="320" y="268" text-anchor="middle" fill="#087bd5" font-size="11" font-weight="700">TRADICIONAL</text>`,
+      net: `
+        <path d="m222 222 119-94a23 23 0 0 1 32 4l57 71a23 23 0 0 1-4 32l-111 82a25 25 0 0 1-34-4l-63-59a21 21 0 0 1 4-32z" fill="none" stroke="#087bd5" stroke-width="12"/>
+        <path d="m250 228 121-92m-103 119 121-92m-92 121 121-92m-143 22 96 93m-67-116 95 92m-67-114 96 92" fill="none" stroke="#49aaf0" stroke-width="4"/>
+        <path d="m226 238-81 85" stroke="#102b55" stroke-width="13" stroke-linecap="round"/>
+        <path d="m137 323 34 31" stroke="#087bd5" stroke-width="16" stroke-linecap="round"/>`,
       brush: `
-        <path d="m291 86 18 8-83 186-18-8z" fill="#087bd5"/>
-        <path d="m288 88 20 9-9 20-20-9z" fill="#062957"/>
-        <rect x="180" y="264" width="174" height="42" rx="12" fill="#0789e8"/>
-        <path d="M194 306v18m22-18v18m22-18v18m22-18v18m22-18v18m22-18v18m22-18v18m22-18v18" stroke="#062957" stroke-width="6" stroke-linecap="round"/>
-        <path d="M181 279h-16m205 0h-16" stroke="#9bd6f9" stroke-width="7" stroke-linecap="round"/>`,
-      testKit: `
-        <rect x="182" y="137" width="276" height="166" rx="18" fill="#087bd5"/>
-        <rect x="198" y="153" width="244" height="134" rx="12" fill="#fff"/>
-        <text x="320" y="181" text-anchor="middle" fill="#062957" font-size="17" font-weight="700">KIT DE TESTE</text>
-        <path d="M235 204v51a18 18 0 0 0 36 0v-51" fill="#d9f3ff" stroke="#0789e8" stroke-width="6"/>
-        <path d="M235 239h36" stroke="#f4a340" stroke-width="12"/>
-        <path d="M302 204v51a18 18 0 0 0 36 0v-51" fill="#d9f3ff" stroke="#0789e8" stroke-width="6"/>
-        <path d="M302 239h36" stroke="#e65d67" stroke-width="12"/>
-        <path d="M369 204v51a18 18 0 0 0 36 0v-51" fill="#d9f3ff" stroke="#0789e8" stroke-width="6"/>
-        <path d="M369 239h36" stroke="#63b878" stroke-width="12"/>`,
+        <path d="m350 91 19 10-89 163-19-10z" fill="#102b55"/>
+        <path d="m344 88 25 13-13 22-25-13z" fill="#087bd5"/>
+        <path d="m225 251 177 15-6 44-178-15z" fill="#087bd5"/>
+        <path d="m227 310-2 18m23-16-2 18m24-16-2 18m24-16-2 18m24-16-2 18m24-16-2 18m24-16-2 18m24-16-2 18m24-16-2 18" stroke="#102b55" stroke-width="7" stroke-linecap="round"/>
+        <path d="m225 254 174 15" stroke="#bce6ff" stroke-width="5"/>`,
       hose: `
-        <path d="M227 153c0-45 60-45 60 0v86c0 45 60 45 60 0v-86c0-45 60-45 60 0v86c0 45-60 45-60 0v-86c0-45-60-45-60 0v86c0 45-60 45-60 0z" fill="none" stroke="#0789e8" stroke-width="24" stroke-linecap="round"/>
-        <path d="M221 148h-27v31h27m192-31h31v31h-31" fill="#062957" stroke="#062957" stroke-width="8" stroke-linejoin="round"/>
-        <path d="M194 156h27m192 0h31" stroke="#9bd6f9" stroke-width="6"/>`,
-      treatmentKit: `
-        <path d="M195 177h99v124h-99z" fill="#087bd5"/>
-        <path d="M214 177v-28h61v28" fill="none" stroke="#062957" stroke-width="12" stroke-linejoin="round"/>
-        <rect x="207" y="216" width="75" height="52" rx="7" fill="#fff"/>
-        <text x="244" y="238" text-anchor="middle" fill="#062957" font-size="12" font-weight="700">TRATAMENTO</text>
-        <path d="M335 167h72l10 20v114h-92V187z" fill="#42a86b"/>
-        <rect x="336" y="207" width="72" height="48" rx="6" fill="#fff"/>
-        <text x="372" y="228" text-anchor="middle" fill="#247a48" font-size="13" font-weight="700">ALGICIDA</text>
-        <path d="M354 167v-17h34v17" fill="#062957"/>`,
-      cover: `
-        <path d="M167 223h306v92H167z" fill="#087bd5"/>
-        <path d="m167 223 42-49h224l40 49z" fill="#0789e8"/>
-        <path d="M209 174v141m74-141v141m75-141v141m75-141v141" stroke="#9bd6f9" stroke-width="5" opacity=".8"/>
-        <path d="M167 223h306m-306 92h306" stroke="#062957" stroke-width="9"/>
-        <path d="M197 174v-19h247v19" fill="none" stroke="#062957" stroke-width="8" stroke-linecap="round"/>
-        <circle cx="181" cy="226" r="8" fill="#fff"/><circle cx="458" cy="226" r="8" fill="#fff"/>`
+        <path d="M226 174c0-57 71-57 71 0v67c0 58 71 58 71 0v-67c0-57 71-57 71 0v67c0 58-71 58-71 0v-67c0-57-71-57-71 0v67c0 58-71 58-71 0z" fill="none" stroke="#087bd5" stroke-width="25" stroke-linecap="round"/>
+        <path d="M215 161h-26v30h26m235-30h27v30h-27" fill="#102b55" stroke="#102b55" stroke-width="8" stroke-linejoin="round"/>
+        <path d="M229 174c0-48 59-48 59 0v67c0 48 59 48 59 0v-67c0-48 59-48 59 0v67" fill="none" stroke="#78c9fa" stroke-width="5" stroke-linecap="round"/>`,
+      floater: `
+        <ellipse cx="320" cy="206" rx="112" ry="70" fill="#087bd5"/>
+        <ellipse cx="320" cy="203" rx="81" ry="47" fill="#e7f6ff"/>
+        <path d="M230 206c0-43 40-70 90-70s90 27 90 70c0 17-11 31-27 40v40c0 13-11 23-25 23h-76c-14 0-25-10-25-23v-40c-16-9-27-23-27-40z" fill="#087bd5"/>
+        <ellipse cx="320" cy="184" rx="65" ry="37" fill="#075fb5"/>
+        <path d="M275 266h90v30h-90z" fill="#064b89"/>
+        <path d="M294 270v20m17-20v20m18-20v20m17-20v20m18-20v20" stroke="#9bd6f9" stroke-width="5"/>`
     };
 
     function productImage(type) {
       const svg = `
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 380">
-          <defs>
-            <linearGradient id="background" x1="0" y1="0" x2="1" y2="1">
-              <stop offset="0" stop-color="#eaf6ff"/>
-              <stop offset="1" stop-color="#c9e8fb"/>
-            </linearGradient>
-          </defs>
-          <rect width="640" height="380" fill="url(#background)"/>
-          <circle cx="505" cy="78" r="40" fill="#fff" opacity=".55"/>
-          <path d="M0 335c105-26 188 14 287-5s205-18 353 2v48H0z" fill="#fff" opacity=".72"/>
+          <rect width="640" height="380" fill="#fff"/>
+          <ellipse cx="320" cy="323" rx="150" ry="12" fill="#edf5fb"/>
           ${productIllustrations[type]}
         </svg>`;
       return `data:image/svg+xml;charset=UTF-8,${encodeURIComponent(svg)}`;
@@ -529,23 +1157,30 @@
           <div class="product-info">
             <h3>${product.name}</h3>
             <div class="price">${formatPrice(product.price)}</div>
-            <button type="button" data-name="${product.name}">Adicionar</button>
+            <div class="installments">${product.installment}</div>
+            <button type="button" data-name="${product.name}">🛒 Comprar</button>
           </div>
         </article>
       `).join('');
 
       document.querySelectorAll('.product button').forEach((button) => {
         button.addEventListener('click', () => {
-          cartItems += 1;
-          cartCount.textContent = cartItems;
+          const product = products.find((item) => item.name === button.dataset.name);
+          if (!product) {
+            return;
+          }
+          cartItems.push(product);
+          cartCount.textContent = cartItems.length;
+          cartTotal.textContent = formatPrice(cartItems.reduce((total, item) => total + item.price, 0));
           clearCartButton.disabled = false;
         });
       });
     }
 
     clearCartButton.addEventListener('click', () => {
-      cartItems = 0;
-      cartCount.textContent = cartItems;
+      cartItems = [];
+      cartCount.textContent = '0';
+      cartTotal.textContent = formatPrice(0);
       clearCartButton.disabled = true;
     });
 
